@@ -536,7 +536,7 @@ async def dbSave():
 	
 	datelist = list(set(datelist1))
 
-	information1 = '----- 보스탐 정보 -----\n'
+	information1 = '----- 루나트라 보스 정보 (컷하면 컷시간 입력 필수 !)-----\n'
 	for timestring in sorted(datelist):
 		for i in range(bossNum):
 			if timestring == bossTime[i]:
@@ -800,7 +800,7 @@ class taskCog(commands.Cog):
 						continue
 					continue
 				t.cancel()
-		await ctx.send( '< 보탐봇 명치 맞고 숨 고르기 중! 잠시만요! >', tts=False)
+		await ctx.send( '< 으억 내 명치 으어어어억!! 잠시만요! >', tts=False)
 		print("명치!")
 		await dbSave()
 		await data_list_Save("kill_list.ini", "-----척살명단-----", kill_Data)
@@ -813,7 +813,7 @@ class taskCog(commands.Cog):
 			await vc.disconnect(force=True)
 
 		if basicSetting[21] != "1":
-			print("명치복구완료!")
+			print("회복되었습니다.")
 			await dbLoad()
 			await self.bot.get_channel(channel).send( '< 다시 왔습니다!(보이스 미사용) >', tts=False)
 
@@ -869,10 +869,10 @@ class taskCog(commands.Cog):
 						await self.bot.get_channel(basicSetting[6]).connect(reconnect=True, timeout=5)
 						if self.bot.voice_clients[0].is_connected() :
 							await self.bot.get_channel(channel).send( '< 다시 왔습니다! >', tts=False)
-							print("명치복구완료!")
+							print("회복되었습니다.")
 					except:
 						await self.bot.get_channel(channel).send( '< 음성채널 접속 에러! >', tts=False)
-						print("명치복구실패!")
+						print("명치회복불가!")
 						pass
 					await dbLoad()
 
@@ -1603,8 +1603,8 @@ class mainCog(commands.Cog):
 
 			await dbSave()
 
-			await ctx.send('< 초기화 완료 >', tts=False)
-			print ("< 초기화 완료 >")
+			await ctx.send('< 루나트라 보스탐 초기화 완료 >', tts=False)
+			print ("< 루나트라 보스탐 초기화 완료 >")
 		else:
 			return
 
@@ -1628,7 +1628,7 @@ class mainCog(commands.Cog):
 				if voice_client.is_playing():
 					voice_client.stop()
 				await voice_client.disconnect(force=True)
-			print("보탐봇강제재시작!")
+			print("루나트라 봇 재시작 됩니다.")
 			await asyncio.sleep(2)
 
 			inidata_restart = repo_restart.get_contents("restart.txt")
@@ -1667,7 +1667,7 @@ class mainCog(commands.Cog):
 					tmp_boss_information[0] = '``` ```'
 
 				embed = discord.Embed(
-						title = "----- 미예약 보스 -----",
+						title = "----- 루나트라 미예약 보스 -----",
 						description= tmp_boss_information[0],
 						color=0x0000ff
 						)
@@ -1682,7 +1682,7 @@ class mainCog(commands.Cog):
 					tmp_boss_information[0] = '``` ```'
 
 				embed = discord.Embed(
-					title = "----- 미예약 보스 -----",
+					title = "----- 루나트라 미예약 보스 -----",
 					description= tmp_boss_information[0],
 					color=0x0000ff
 					)
@@ -2288,12 +2288,12 @@ class mainCog(commands.Cog):
 					tmp_boss_information[0] = '``` ```'
 
 				embed = discord.Embed(
-						title = "----- 보스탐 정보 -----",
+						title = "----- 루나트라 보스 정보 (컷하면 컷시간 입력 필수 !)-----",
 						description= boss_information[0],
 						color=0x0000ff
 						)
 				embed.add_field(
-						name="----- 미예약 보스 -----",
+						name="----- 루나트라 미예약 보스 -----",
 						value= tmp_boss_information[0],
 						inline = False
 						)				
@@ -2306,7 +2306,7 @@ class mainCog(commands.Cog):
 					boss_information[0] = '``` ```'
 
 				embed = discord.Embed(
-						title = "----- 보스탐 정보 -----",
+						title = "----- 루나트라 보스 정보 (컷하면 컷시간 입력 필수 !)-----",
 						description= boss_information[0],
 						color=0x0000ff
 						)
@@ -2333,7 +2333,7 @@ class mainCog(commands.Cog):
 					tmp_boss_information[0] = '``` ```'
 
 				embed = discord.Embed(
-					title = "----- 미예약 보스 -----",
+					title = "----- 루나트라 미예약 보스 -----",
 					description= tmp_boss_information[0],
 					color=0x0000ff
 					)
@@ -2399,7 +2399,7 @@ class mainCog(commands.Cog):
 							aa.append(f"[{tmp_bossTime[i].strftime('%Y-%m-%d')}] {tmp_bossTime[i].strftime('%H:%M:%S')}")
 
 						# aa.append(tmp_bossTime[i].strftime('%H:%M:%S'))  #output_bossData[2] : 시간(00:00:00) -> 초빼기 : aa.append(tmp_bossTime[i].strftime('%H:%M'))
-						aa.append('-')	                                 #output_bossData[3] : -
+						aa.append('젠타임 지남-')	                                 #output_bossData[3] : -
 					else :
 						aa.append(bossTime[i])                           #output_bossData[1] : 시간
 
@@ -2409,7 +2409,7 @@ class mainCog(commands.Cog):
 							aa.append(f"[{bossTime[i].strftime('%Y-%m-%d')}] {bossTime[i].strftime('%H:%M:%S')}")
 							
 						# aa.append(bossTime[i].strftime('%H:%M:%S'))      #output_bossData[2] : 시간(00:00:00) -> 초빼기 : aa.append(bossTime[i].strftime('%H:%M'))
-						aa.append('+')	                                 #output_bossData[3] : +
+						aa.append('●')	                                 #output_bossData[3] : +
 					aa.append(bossData[i][2])                            #output_bossData[4] : 멍/미입력 보스
 					aa.append(bossMungCnt[i])	                         #output_bossData[5] : 멍/미입력횟수
 					aa.append(bossData[i][6])	                         #output_bossData[6] : 메세지
@@ -2490,7 +2490,7 @@ class mainCog(commands.Cog):
 				boss_information[0] = '``` ```'
 
 			embed = discord.Embed(
-					title = "----- 보스탐 정보 -----",
+					title = "----- 루나트라 보스 정보 (컷하면 컷시간 입력 필수 !)-----",
 					description= boss_information[0],
 					color=0x0000ff
 					)
@@ -2518,7 +2518,7 @@ class mainCog(commands.Cog):
 				tmp_boss_information[0] = '``` ```'
 
 			embed = discord.Embed(
-				title = "----- 미예약 보스 -----",
+				title = "----- 루나트라 미예약 보스 -----",
 				description= tmp_boss_information[0],
 				color=0x0000ff
 				)
@@ -2593,7 +2593,7 @@ class mainCog(commands.Cog):
 				kill_Data[args] = 1
 					
 			embed = discord.Embed(
-					description= ':skull_crossbones: ' + args + ' 따히! [' + str(kill_Data[args]) + '번]\n',
+					description= ':skull_crossbones: ' + args + ' 따! [' + str(kill_Data[args]) + '번]\n',
 					color=0xff00ff
 					)
 			return await ctx.send(embed=embed, tts=False)
@@ -2682,7 +2682,7 @@ class mainCog(commands.Cog):
 			race_val = []
 			random_pos = []
 			racing_result = []
-			output = ':camera: :camera: :camera: 신나는 레이싱! :camera: :camera: :camera:\n'
+			output = ':camera: :camera: :camera: 신나는 v4 레이싱! :camera: :camera: :camera:\n'
 			#racing_unit = [':giraffe:', ':elephant:', ':tiger2:', ':hippopotamus:', ':crocodile:',':leopard:',':ox:', ':sheep:', ':pig2:',':dromedary_camel:',':dragon:',':rabbit2:'] #동물스킨
 			#racing_unit = [':red_car:', ':taxi:', ':bus:', ':trolleybus:', ':race_car:', ':police_car:', ':ambulance:', ':fire_engine:', ':minibus:', ':truck:', ':articulated_lorry:', ':tractor:', ':scooter:', ':manual_wheelchair:', ':motor_scooter:', ':auto_rickshaw:', ':blue_car:', ':bike:', ':helicopter:', ':steam_locomotive:']  #탈것스킨
 			#random.shuffle(racing_unit) 
@@ -2754,9 +2754,9 @@ class mainCog(commands.Cog):
 
 				for j in range(len(random_pos[0])):
 					if j%2 == 0:
-						output =  ':camera: :camera_with_flash: :camera: 신나는 레이싱! :camera_with_flash: :camera: :camera_with_flash:\n'
+						output =  ':camera: :camera_with_flash: :camera: 신나는 v4 레이싱! :camera_with_flash: :camera: :camera_with_flash:\n'
 					else :
-						output =  ':camera_with_flash: :camera: :camera_with_flash: 신나는 레이싱! :camera: :camera_with_flash: :camera:\n'
+						output =  ':camera_with_flash: :camera: :camera_with_flash: 신나는 v4 레이싱! :camera: :camera_with_flash: :camera:\n'
 					str_racing_field = []
 					for i in range(len(racing_member)):
 						temp_pos = cur_pos[i]
@@ -3903,7 +3903,7 @@ class IlsangDistributionBot(commands.AutoShardedBot):
 
 	async def close(self):
 		await super().close()
-		print("일상디코봇 종료 완료.")
+		print("V4 발리언 디코봇 종료 완료.")
 
 ilsang_distribution_bot : IlsangDistributionBot = IlsangDistributionBot()
 ilsang_distribution_bot.add_cog(mainCog(ilsang_distribution_bot))
