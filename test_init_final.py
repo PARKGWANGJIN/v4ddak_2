@@ -536,7 +536,7 @@ async def dbSave():
 	
 	datelist = list(set(datelist1))
 
-	information1 = '----- 루나트라 보스 정보 (컷하면 컷시간 입력 필수 !)-----\n'
+	information1 = '🔥 루나트라 보스 정보 🔥\n💡 컷하면 컷시간 입력 필수 !\n'
 	for timestring in sorted(datelist):
 		for i in range(bossNum):
 			if timestring == bossTime[i]:
@@ -1603,8 +1603,8 @@ class mainCog(commands.Cog):
 
 			await dbSave()
 
-			await ctx.send('< 루나트라 보스탐 초기화 완료 >', tts=False)
-			print ("< 루나트라 보스탐 초기화 완료 >")
+			await ctx.send('< 루나트라 봇 초기화 완료 >', tts=False)
+			print ("< 루나트라 봇 초기화 완료 >")
 		else:
 			return
 
@@ -1667,7 +1667,7 @@ class mainCog(commands.Cog):
 					tmp_boss_information[0] = '``` ```'
 
 				embed = discord.Embed(
-						title = "----- 루나트라 미예약 보스 -----",
+						title = "😭 루나트라 미예약 보스 😭",
 						description= tmp_boss_information[0],
 						color=0x0000ff
 						)
@@ -1682,7 +1682,7 @@ class mainCog(commands.Cog):
 					tmp_boss_information[0] = '``` ```'
 
 				embed = discord.Embed(
-					title = "----- 루나트라 미예약 보스 -----",
+					title = "😭 루나트라 미예약 보스 😭",
 					description= tmp_boss_information[0],
 					color=0x0000ff
 					)
@@ -2226,7 +2226,7 @@ class mainCog(commands.Cog):
 						# 	aa.append(f"[{tmp_bossTime[i].strftime('%Y-%m-%d')}] {tmp_bossTime[i].strftime('%H:%M:%S')}")
 
 						aa.append(tmp_bossTime[i].strftime('%H:%M:%S'))  #output_bossData[2] : 시간(00:00:00) -> 초빼기 : aa.append(tmp_bossTime[i].strftime('%H:%M'))  
-						aa.append('젠타임 지남-')	                                 #output_bossData[3] : -
+						aa.append('❌')	                                 #output_bossData[3] : -
 					else :
 						aa.append(bossTime[i])                           #output_bossData[1] : 시간
 
@@ -2236,7 +2236,7 @@ class mainCog(commands.Cog):
 						# 	aa.append(f"[{bossTime[i].strftime('%Y-%m-%d')}] {bossTime[i].strftime('%H:%M:%S')}")
 
 						aa.append(bossTime[i].strftime('%H:%M:%S'))      #output_bossData[2] : 시간(00:00:00) -> 초빼기 : aa.append(bossTime[i].strftime('%H:%M'))  
-						aa.append('+')	                                 #output_bossData[3] : +
+						aa.append('✔️')	                                 #output_bossData[3] : +
 					aa.append(bossData[i][2])                            #output_bossData[4] : 멍/미입력 보스
 					aa.append(bossMungCnt[i])	                         #output_bossData[5] : 멍/미입력횟수
 					aa.append(bossData[i][6])	                         #output_bossData[6] : 메세지
@@ -2288,12 +2288,12 @@ class mainCog(commands.Cog):
 					tmp_boss_information[0] = '``` ```'
 
 				embed = discord.Embed(
-						title = "----- 루나트라 보스 정보 (컷하면 컷시간 입력 필수 !)-----",
+						title = "🔥 루나트라 보스 정보 🔥\n💡 컷하면 컷시간 입력 필수 !\n",
 						description= boss_information[0],
 						color=0x0000ff
 						)
 				embed.add_field(
-						name="----- 루나트라 미예약 보스 -----",
+						name="😭 루나트라 미예약 보스 😭",
 						value= tmp_boss_information[0],
 						inline = False
 						)				
@@ -2306,7 +2306,7 @@ class mainCog(commands.Cog):
 					boss_information[0] = '``` ```'
 
 				embed = discord.Embed(
-						title = "----- 루나트라 보스 정보 (컷하면 컷시간 입력 필수 !)-----",
+						title = "🔥 루나트라 보스 정보 🔥\n💡 컷하면 컷시간 입력 필수 !\n",
 						description= boss_information[0],
 						color=0x0000ff
 						)
@@ -2333,7 +2333,7 @@ class mainCog(commands.Cog):
 					tmp_boss_information[0] = '``` ```'
 
 				embed = discord.Embed(
-					title = "----- 루나트라 미예약 보스 -----",
+					title = "😭 루나트라 미예약 보스 😭",
 					description= tmp_boss_information[0],
 					color=0x0000ff
 					)
@@ -2399,7 +2399,7 @@ class mainCog(commands.Cog):
 							aa.append(f"[{tmp_bossTime[i].strftime('%Y-%m-%d')}] {tmp_bossTime[i].strftime('%H:%M:%S')}")
 
 						# aa.append(tmp_bossTime[i].strftime('%H:%M:%S'))  #output_bossData[2] : 시간(00:00:00) -> 초빼기 : aa.append(tmp_bossTime[i].strftime('%H:%M'))
-						aa.append('젠타임 지남-')	                                 #output_bossData[3] : -
+						aa.append('❌')	                                 #output_bossData[3] : -
 					else :
 						aa.append(bossTime[i])                           #output_bossData[1] : 시간
 
@@ -2409,7 +2409,7 @@ class mainCog(commands.Cog):
 							aa.append(f"[{bossTime[i].strftime('%Y-%m-%d')}] {bossTime[i].strftime('%H:%M:%S')}")
 							
 						# aa.append(bossTime[i].strftime('%H:%M:%S'))      #output_bossData[2] : 시간(00:00:00) -> 초빼기 : aa.append(bossTime[i].strftime('%H:%M'))
-						aa.append('●')	                                 #output_bossData[3] : +
+						aa.append('✔️')	                                 #output_bossData[3] : +
 					aa.append(bossData[i][2])                            #output_bossData[4] : 멍/미입력 보스
 					aa.append(bossMungCnt[i])	                         #output_bossData[5] : 멍/미입력횟수
 					aa.append(bossData[i][6])	                         #output_bossData[6] : 메세지
@@ -2490,7 +2490,7 @@ class mainCog(commands.Cog):
 				boss_information[0] = '``` ```'
 
 			embed = discord.Embed(
-					title = "----- 루나트라 보스 정보 (컷하면 컷시간 입력 필수 !)-----",
+					title = "🔥 루나트라 보스 정보 🔥\n💡 컷하면 컷시간 입력 필수 !\n",
 					description= boss_information[0],
 					color=0x0000ff
 					)
@@ -2518,7 +2518,7 @@ class mainCog(commands.Cog):
 				tmp_boss_information[0] = '``` ```'
 
 			embed = discord.Embed(
-				title = "----- 루나트라 미예약 보스 -----",
+				title = "😭 루나트라 미예약 보스 😭",
 				description= tmp_boss_information[0],
 				color=0x0000ff
 				)
